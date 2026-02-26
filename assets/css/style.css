@@ -1,0 +1,138 @@
+/* ============================================================
+   assets/css/style.css
+   Custom styles for ASPEJ School
+   Works alongside Tailwind CDN — no build step required.
+   ============================================================ */
+
+/* ── Custom Utility Classes (mirror what was @apply in old file) ── */
+
+/* Navigation */
+.nav-link {
+    padding: .375rem .75rem;
+    border-radius: .375rem;
+    font-size: .875rem;
+    font-weight: 500;
+    color: #374151;
+    transition: background-color .2s, color .2s;
+    text-decoration: none;
+    display: inline-block;
+}
+.nav-link:hover { background-color: #f3f4f6; }
+
+.dark .nav-link        { color: #d1d5db; }
+.dark .nav-link:hover  { background-color: #374151; }
+
+.nav-link.current      { font-weight: 700; color: #1D2A4D; }
+.dark .nav-link.current{ color: #FFC72C; }
+
+.mobile-nav-link {
+    display: block;
+    padding: .5rem .75rem;
+    border-radius: .375rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #374151;
+    text-decoration: none;
+    transition: background-color .2s;
+}
+.mobile-nav-link:hover          { background-color: #f3f4f6; }
+.dark .mobile-nav-link          { color: #d1d5db; }
+.dark .mobile-nav-link:hover    { background-color: #374151; }
+.mobile-nav-link.current        { font-weight: 700; color: #1D2A4D; background-color: #f9fafb; }
+.dark .mobile-nav-link.current  { color: #FFC72C; background-color: #1f2937; }
+
+/* ── Student Portal Sidebar ─────────────────────────────────── */
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: .75rem 1rem;
+    border-radius: .5rem;
+    color: #d1d5db;
+    text-decoration: none;
+    font-size: .95rem;
+    transition: background-color .2s, color .2s;
+    margin-bottom: .25rem;
+}
+.sidebar-link:hover {
+    background-color: #FFC72C;
+    color: #1D2A4D;
+}
+.sidebar-link.active {
+    background-color: #ffffff;
+    color: #1D2A4D;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(0,0,0,.15);
+}
+
+/* ── Dashboard Card ─────────────────────────────────────────── */
+.dashboard-card {
+    padding: 1.5rem;
+    border-radius: .5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,.12);
+    transition: transform .3s;
+}
+.dashboard-card:hover { transform: scale(1.04); }
+
+/* ── Quick Access Buttons ───────────────────────────────────── */
+.quick-access-btn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    border-radius: .5rem;
+    background-color: #f3f4f6;
+    font-weight: 500;
+    font-size: .9rem;
+    transition: background-color .25s, color .25s;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    text-decoration: none;
+    color: inherit;
+}
+.quick-access-btn:hover {
+    background-color: #1D2A4D;
+    color: #ffffff;
+}
+.dark .quick-access-btn               { background-color: #374151; color: #f3f4f6; }
+.dark .quick-access-btn:hover         { background-color: #FFC72C; color: #1D2A4D; }
+
+/* ── Utility: line-clamp ────────────────────────────────────── */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ── Smooth focus ring for form fields ──────────────────────── */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #FFC72C;
+    outline-offset: 2px;
+}
+
+/* ── Back-to-top transition ─────────────────────────────────── */
+#back-to-top {
+    transition: opacity .3s ease;
+}
+
+/* ── AOS animation override for dark mode ───────────────────── */
+[data-aos] { pointer-events: none; }
+[data-aos].aos-animate { pointer-events: auto; }
+
+/* ── Scrollbar thin on sidebar ──────────────────────────────── */
+aside::-webkit-scrollbar       { width: 4px; }
+aside::-webkit-scrollbar-track { background: transparent; }
+aside::-webkit-scrollbar-thumb { background: #FFC72C; border-radius: 2px; }
+
+/* ── Print styles for report card PDF ──────────────────────── */
+@media print {
+    header, aside, #download-report-btn, #term-select, nav { display: none !important; }
+    body   { background: #fff !important; color: #000 !important; }
+    .dark  { filter: none !important; }
+    #report-card-content { border: 2px solid #1D2A4D; padding: 2rem; }
+}
